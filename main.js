@@ -14,7 +14,7 @@ function setup() {
     video.hide();
 
     poseNet = ml5.poseNet(video, modelLoaded);
-    poseNet.on('pose, gotPoses');
+    poseNet.on('pose', gotPoses);
 }
 
 function modelLoaded() {
@@ -35,9 +35,9 @@ function gotPoses(results)
     if(results.length > 0)
     {
         console.log(results);   
-        noseX = results[0].pose.nose.x
-        noseY = results[0].pose.nose.y
-        console.log("nose x = " + nose.x);
-        console.log("nose y = " + nose.y);
+        noseX = results[0].pose.nose.x-15;
+        noseY = results[0].pose.nose.y-15;
+        console.log("nose x = " + noseX.x);
+        console.log("nose y = " + noseY.y);
     }
 }
